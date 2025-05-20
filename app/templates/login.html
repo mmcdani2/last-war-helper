@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center">
+  <form method="POST" class="bg-gray-800 p-6 rounded shadow-md w-full max-w-sm">
+    <h2 class="text-2xl font-bold mb-4 text-center">Log In</h2>
+
+    {% with messages = get_flashed_messages(category_filter=["error"]) %}
+      {% if messages %}
+        <div class="text-red-400 text-sm mb-2">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <input name="username" type="text" placeholder="Username" class="w-full mb-3 p-2 rounded bg-gray-700 text-white" required>
+    <input name="password" type="password" placeholder="Password" class="w-full mb-4 p-2 rounded bg-gray-700 text-white" required>
+
+    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Log In</button>
+
+    <p class="text-sm text-center mt-4">
+      No account? <a href="{{ url_for('main.register') }}" class="text-blue-400">Register here</a>
+    </p>
+  </form>
+</div>
+{% endblock %}

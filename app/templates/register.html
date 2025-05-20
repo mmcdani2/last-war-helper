@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center">
+  <form method="POST" class="bg-gray-800 p-6 rounded shadow-md w-full max-w-sm">
+    <h2 class="text-2xl font-bold mb-4 text-center">Create Account</h2>
+
+    <input name="username" type="text" placeholder="Username" class="w-full mb-3 p-2 rounded bg-gray-700 text-white" required>
+    <input name="password" type="password" placeholder="Password" class="w-full mb-3 p-2 rounded bg-gray-700 text-white" required>
+    <input name="server" type="text" placeholder="Server Number" class="w-full mb-3 p-2 rounded bg-gray-700 text-white" required>
+    <input name="alliance" type="text" placeholder="Alliance Name" class="w-full mb-3 p-2 rounded bg-gray-700 text-white" required>
+
+    <label class="inline-flex items-center mb-3">
+      <input name="vip" type="checkbox" class="form-checkbox text-blue-600">
+      <span class="ml-2 text-white text-sm">VIP slot unlocked?</span>
+    </label>
+
+    <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">Sign Up</button>
+
+    <p class="text-sm text-center mt-4">
+      Already have an account? <a href="{{ url_for('main.login') }}" class="text-blue-400">Log in</a>
+    </p>
+  </form>
+</div>
+{% endblock %}

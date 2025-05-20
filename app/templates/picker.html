@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="min-h-screen flex items-center justify-center p-4">
+  <form method="POST" class="bg-gray-800 p-6 rounded shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-4 text-center">🎯 VIP Picker</h2>
+
+    <label class="block text-sm mb-2 text-gray-300">Paste contestant names (one per line):</label>
+    <textarea name="contestants" rows="6" class="w-full p-2 rounded bg-gray-700 text-white mb-4" required></textarea>
+
+    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Pick!</button>
+
+    {% if contestant_pick %}
+      <div class="mt-6 bg-green-800 p-4 rounded text-center text-white">
+        🚂 Contestant Picked: <strong>{{ contestant_pick }}</strong><br>
+        {% if user.vip and defender_pick %}
+          🛡️ Defender Picked: <strong>{{ defender_pick }}</strong>
+        {% endif %}
+      </div>
+    {% endif %}
+  </form>
+</div>
+{% endblock %}
